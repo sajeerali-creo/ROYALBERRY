@@ -1,0 +1,23 @@
+.padding-top{
+    padding-top: 24px;
+}
+.padding-bottom{
+    padding-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+    .padding-top{
+        padding-top: 50px;
+    }
+    .padding-bottom{
+        padding-bottom: 50px;
+    }
+}
+@media (min-width: 768px) {
+    .padding-top{
+        padding-top: 100px;
+    }
+    .padding-bottom{
+        padding-bottom: 100px;
+    }
+}
