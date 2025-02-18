@@ -1,15 +1,20 @@
 
 body{
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Quicksand", serif;
 }
+
+h1, h2, h3, h4, h5, h6{
+    font-family: "Playfair Display", serif;
+}
+
 h1, h2, h3, h4, h5, p, a, div{
     line-height: 1.5em;
 }
 a{
-    text-decoration: none;
-    transition: all 0.3s ease-out;
+    text-decoration: none!important;
+    transition: all 0.5s ease;
     &:hover{
-        color: var(--primary);
+        text-decoration: none!important;
     }
 }
 ul,
@@ -35,4 +40,8 @@ li {
         list-style-type: disc;
         padding-bottom: 16px;
     }
+}
+p{
+    font-size: 18px;
+    color: #583229;
 }

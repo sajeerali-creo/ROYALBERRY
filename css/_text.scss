@@ -1,0 +1,31 @@
+.text-gradient {
+    background: linear-gradient(86deg, #C28B5E 5.15%, #FFE4CE 47.6%, #C28B5E 95.48%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.h1{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+
+    @media (min-width: 992px) {
+        font-size: 60px;
+    }
+}
+.h2{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+
+    @media (min-width: 992px) {
+        font-size: 46px;
+    }
+}
+
+.big-text{
+    font-size: 32px;
+    color: var(--white);
+}

@@ -1,0 +1,23 @@
+.main-banner {
+    width: 100%;
+    height: auto;
+    background-image: url(../img/banner.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    padding: 200px 0px 100px 0px;
+}
+
+@media (min-width: 768px) {
+    .main-banner {
+        padding: 200px 0px 150px 0px;
+    }
+}
+
+@media (min-width: 992px) {
+    .main-banner {
+        height: 100vh;
+    }
+}

@@ -5,3 +5,15 @@
     --text: #fff;
     --bg:#f8f7f5;
 }
+
+.text-white{
+    color: var(--white);
+}
+.text-pink{
+    background: linear-gradient(88.19deg, #45193C 4.95%, #752B66 97.95%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+

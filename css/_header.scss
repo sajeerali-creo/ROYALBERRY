@@ -1,0 +1,152 @@
+header {
+    height: auto;
+    background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    padding: 48px 0px;
+
+    .menus {
+        display: flex;
+        margin: 0px;
+        padding: 0px;
+
+        li {
+            a {
+                color: #8C8B8B;
+                font-size: 14px;
+
+                &:hover {
+                    color: var(--white);
+                }
+            }
+
+            .active {
+                color: var(--white);
+            }
+        }
+    }
+}
+
+
+@media (min-width: 992px) {
+    header {
+        .logo {
+            width: 210px;
+        }
+
+        .menus {
+            gap: 16px;
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    header {
+        .logo {
+            width: 250px;
+        }
+
+        .menus {
+            gap: 32px;
+        }
+    }
+}
+
+.sm-header {
+    background-color: #000000;
+    padding: 16px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+
+    .btn-primary {
+        width: 48px;
+        height: 48px;
+
+        i {
+            font-size: 24px;
+        }
+    }
+
+    .logo {
+        height: 46px;
+    }
+}
+
+.offcanvas {
+    background-color: #000000;
+    width: 80% !important;
+    display: flex;
+
+    .offcanvas-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 48px;
+
+        .menus {
+            gap: 48px;
+
+            li {
+                a {
+                    color: var(--white);
+                    padding: 16px 0px;
+                    display: flex;
+                }
+            }
+        }
+
+        .btn-primary {
+            margin-top: 48px;
+        }
+    }
+
+    .close {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        color: var(--white);
+        padding: 24px 0px;
+    }
+}
+
+.whatsap {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+
+    a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 160px;
+        background-color: #2CB058;
+        color: var(--white);
+        font-size: 30px;
+    }
+
+    @media (min-width: 992px) {
+        bottom: 100px;
+        right: 100px;
+    }
+}
+
+.pulse {
+    animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+    0% {
+        box-shadow: 0 0 0 0px rgba(44, 176, 88, 0.2);
+    }
+
+    100% {
+        box-shadow: 0 0 0 20px rgba(44, 176, 88, 0);
+    }
+}

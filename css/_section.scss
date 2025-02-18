@@ -1,0 +1,20 @@
+.bg-section {
+    background-color: #E0B464;
+    background-image: url(../img/bg-mode.webp);
+    background-position: top right;
+    background-size: 440px;
+    background-repeat: no-repeat;
+}
+
+.box-img {
+    width: 100%;
+    img {
+        width: 100%;
+    }
+}
+
+@media (min-width: 992px) {
+    .box-img {
+        width: 281px;
+    }
+}

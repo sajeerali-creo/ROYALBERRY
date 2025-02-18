@@ -1,5 +1,9 @@
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Quicksand", serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", serif;
 }
 
 h1, h2, h3, h4, h5, p, a, div {
@@ -7,11 +11,11 @@ h1, h2, h3, h4, h5, p, a, div {
 }
 
 a {
-  text-decoration: none;
-  transition: all 0.3s ease-out;
+  text-decoration: none !important;
+  transition: all 0.5s ease;
 }
 a:hover {
-  color: var(--primary);
+  text-decoration: none !important;
 }
 
 ul,
@@ -39,75 +43,204 @@ li {
   padding-bottom: 16px;
 }
 
-.btn-menu {
-  background-color: var(--primary);
-  color: var(--white);
-  height: 40px;
-  width: 40px;
-  justify-content: center;
-  align-items: center;
-}
-.btn-menu i {
-  color: var(--white);
+p {
+  font-size: 18px;
+  color: #583229;
 }
 
-.social {
-  position: fixed;
-  /* or absolute */
-  left: 50%;
-  margin-left: -100px;
-  bottom: 50px;
-  z-index: 9;
-}
-.social a {
+.btn-primary {
+  padding: 0px 16px;
+  height: 48px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.09);
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
   display: flex;
-  width: 40px;
-  height: 40px;
-  background-color: var(--primary);
-  border-radius: 160px;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.5s ease;
+  gap: 4px;
+}
+.btn-primary span {
+  background: linear-gradient(45deg, #B78B3A, #E2D8C4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.btn-primary i {
+  background: linear-gradient(45deg, #B78B3A, #E2D8C4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  padding: 1px;
+  background: linear-gradient(45deg, #B78B3A, #E2D8C4);
+  -webkit-mask: linear-gradient(white, white) content-box, linear-gradient(white, white);
+  mask: linear-gradient(white, white) content-box, linear-gradient(white, white);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  transition: all 0.5s ease;
+}
+
+.btn-primary:hover::before {
+  background: linear-gradient(45deg, #E2D8C4, #B78B3A);
+  transition: all 0.5s ease;
+  /* Reverse gradient on hover */
+}
+
+.btn-light {
+  padding: 0px 16px;
+  height: 48px;
+  border: 1px solid var(--white);
+  border-radius: 8px;
+  color: var(--white);
+  display: flex;
   align-items: center;
   justify-content: center;
 }
-.social a i {
+.btn-light:hover {
+  opacity: 0.5;
+}
+
+header {
+  height: auto;
+  background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  padding: 48px 0px;
+}
+header .menus {
+  display: flex;
+  margin: 0px;
+  padding: 0px;
+}
+header .menus li a {
+  color: #8C8B8B;
+  font-size: 14px;
+}
+header .menus li a:hover {
   color: var(--white);
 }
-.social a:hover {
-  background-color: #8D8064;
+header .menus li .active {
+  color: var(--white);
 }
 
 @media (min-width: 992px) {
-  .social {
-    position: fixed;
-    bottom: inherit;
-    top: 50%;
-    right: 30px;
-    left: inherit;
-    transform: translate(-50%, -50%);
+  header .logo {
+    width: 210px;
+  }
+  header .menus {
+    gap: 16px;
   }
 }
-.icon-round {
+@media (min-width: 1200px) {
+  header .logo {
+    width: 250px;
+  }
+  header .menus {
+    gap: 32px;
+  }
+}
+.sm-header {
+  background-color: #000000;
+  padding: 16px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+.sm-header .btn-primary {
+  width: 48px;
+  height: 48px;
+}
+.sm-header .btn-primary i {
+  font-size: 24px;
+}
+.sm-header .logo {
+  height: 46px;
+}
+
+.offcanvas {
+  background-color: #000000;
+  width: 80% !important;
   display: flex;
-  width: 50px;
-  height: 50px;
-  border-radius: 160px;
-  background-color: var(--primary);
+}
+.offcanvas .offcanvas-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px;
+}
+.offcanvas .offcanvas-body .menus {
+  gap: 48px;
+}
+.offcanvas .offcanvas-body .menus li a {
+  color: var(--white);
+  padding: 16px 0px;
+  display: flex;
+}
+.offcanvas .offcanvas-body .btn-primary {
+  margin-top: 48px;
+}
+.offcanvas .close {
+  display: flex;
+  text-align: center;
   justify-content: center;
   align-items: center;
-  flex: 0 0 auto;
-}
-.icon-round i {
   color: var(--white);
-  margin: 0px !important;
+  padding: 24px 0px;
 }
 
-.btn {
-  border: none;
-  background-color: var(--primary);
-  color: var(--white);
-  font-weight: 600;
+.whatsap {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+}
+.whatsap a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
   height: 60px;
+  border-radius: 160px;
+  background-color: #2CB058;
+  color: var(--white);
+  font-size: 30px;
+}
+@media (min-width: 992px) {
+  .whatsap {
+    bottom: 100px;
+    right: 100px;
+  }
 }
 
+.pulse {
+  animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0px rgba(44, 176, 88, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba(44, 176, 88, 0);
+  }
+}
 .padding-top {
   padding-top: 24px;
 }
@@ -136,19 +269,13 @@ li {
 .page-loader {
   width: 100%;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   background: var(--white);
   z-index: 1000;
-}
-.page-loader .txt {
-  color: #666;
-  text-align: center;
-  top: 40%;
-  position: relative;
-  text-transform: uppercase;
-  letter-spacing: 0.3rem;
-  font-weight: bold;
-  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0px;
 }
 
 /* SPINNER ANIMATION */
@@ -174,7 +301,6 @@ li {
 .loading {
   width: 150px;
   height: 150px;
-  background-color: #f9f9f9;
   background-image: url(../img/loading.webp);
   background-repeat: no-repeat;
   background-size: 100%;
@@ -196,13 +322,16 @@ li {
 /* Keyframe animation for moving the div */
 @keyframes move {
   0% {
-    transform: translateY(0); /* Start position */
+    transform: translateY(0);
+    /* Start position */
   }
   50% {
-    transform: translateY(200px); /* Move 200px to the right */
+    transform: translateY(200px);
+    /* Move 200px to the right */
   }
   100% {
-    transform: translateY(0); /* Return to the start position */
+    transform: translateY(0);
+    /* Return to the start position */
   }
 }
 :root {
@@ -211,4 +340,94 @@ li {
   --black: #0f172a;
   --text: #fff;
   --bg:#f8f7f5;
+}
+
+.text-white {
+  color: var(--white);
+}
+
+.text-pink {
+  background: linear-gradient(88.19deg, #45193C 4.95%, #752B66 97.95%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.main-banner {
+  width: 100%;
+  height: auto;
+  background-image: url(../img/banner.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  padding: 200px 0px 100px 0px;
+}
+
+@media (min-width: 768px) {
+  .main-banner {
+    padding: 200px 0px 150px 0px;
+  }
+}
+@media (min-width: 992px) {
+  .main-banner {
+    height: 100vh;
+  }
+}
+.text-gradient {
+  background: linear-gradient(86deg, #C28B5E 5.15%, #FFE4CE 47.6%, #C28B5E 95.48%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.h1 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+}
+@media (min-width: 992px) {
+  .h1 {
+    font-size: 60px;
+  }
+}
+
+.h2 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+}
+@media (min-width: 992px) {
+  .h2 {
+    font-size: 46px;
+  }
+}
+
+.big-text {
+  font-size: 32px;
+  color: var(--white);
+}
+
+.bg-section {
+  background-color: #E0B464;
+  background-image: url(../img/bg-mode.webp);
+  background-position: top right;
+  background-size: 440px;
+  background-repeat: no-repeat;
+}
+
+.box-img {
+  width: 100%;
+}
+.box-img img {
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .box-img {
+    width: 281px;
+  }
 }/*# sourceMappingURL=main.css.map */
