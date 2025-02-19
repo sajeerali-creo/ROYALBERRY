@@ -6,7 +6,7 @@
     text-fill-color: transparent;
 }
 
-.h1{
+.h1 {
     font-style: normal;
     font-weight: 400;
     font-size: 32px;
@@ -15,7 +15,8 @@
         font-size: 60px;
     }
 }
-.h2{
+
+.h2 {
     font-style: normal;
     font-weight: 600;
     font-size: 30px;
@@ -24,8 +25,49 @@
         font-size: 46px;
     }
 }
+.h3 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
 
-.big-text{
+    @media (min-width: 992px) {
+        font-size: 36px;
+    }
+}
+
+.big-text {
     font-size: 32px;
     color: var(--white);
+}
+
+p {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 33px;
+    color: #666666;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 0;
+}
+
+.fs-4{
+    font-size: 4px;
+}
+.fs-8{
+    font-size: 8px;
+}
+.fs-16{
+    font-size: 16px;
+}
+.fs-24{
+    font-size: 24px;
+}
+.fs-48{
+    font-size: 48px;
+}
+.fs-96{
+    font-size: 96px;
 }
