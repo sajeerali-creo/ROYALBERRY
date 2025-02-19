@@ -28,3 +28,9 @@
         padding-bottom: 100px;
     }
 }
+.extra-b-padding1{
+    padding-bottom: 100px;
+    @media (min-width: 992px) {
+        padding-bottom: 150px;
+    }
+}

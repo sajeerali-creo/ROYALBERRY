@@ -69,7 +69,7 @@
 }
 
 .carousel-indicators {
-    bottom: -50px;
+    bottom: -88px;
 }
 
 .carousel-indicators [data-bs-target] {
@@ -245,4 +245,14 @@
             width: 180px;
         }
     }
+}
+
+.drawer{
+    width: 200px;
+    height: 200px;
+    background: var(--white);
+    border-radius: 20px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
 }
