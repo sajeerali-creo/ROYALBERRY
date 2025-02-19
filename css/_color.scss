@@ -25,6 +25,11 @@
     background: linear-gradient(153deg, rgba(252, 237, 213, 0) 0%, rgba(255, 240, 216, 1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fcedd5", endColorstr="#fff0d8", GradientType=1);
 }
-.text-brown{
+
+.text-brown {
     color: #583229;
+}
+
+.bg-gallery{
+    background: linear-gradient(239.09deg, #352D2D 0%, #0F0F0F 100%), linear-gradient(180deg, #FFF0D8 0%, rgba(253, 239, 214, 0) 50.5%, rgba(255, 240, 216, 0.1) 100%);
 }

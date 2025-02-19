@@ -16,7 +16,7 @@ header {
             a {
                 color: #8C8B8B;
                 font-size: 14px;
-
+                font-weight: 600;
                 &:hover {
                     color: var(--white);
                 }
@@ -148,6 +148,19 @@ header {
 
     100% {
         box-shadow: 0 0 0 20px rgba(44, 176, 88, 0);
+    }
+}
+.pulse2 {
+    animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+    0% {
+        box-shadow: 0 0 0 0px rgba(255, 255, 255, 0.2);
+    }
+
+    100% {
+        box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
     }
 }
 
