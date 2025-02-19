@@ -131,10 +131,9 @@ header {
         color: var(--white);
         font-size: 30px;
     }
-
-    @media (min-width: 992px) {
-        bottom: 100px;
-        right: 100px;
+    @media (min-width: 1200px) {
+        bottom: 30px;
+        right: 30px;
     }
 }
 

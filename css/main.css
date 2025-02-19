@@ -237,10 +237,10 @@ header .menus li .active {
   color: var(--white);
   font-size: 30px;
 }
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .whatsap {
-    bottom: 100px;
-    right: 100px;
+    bottom: 30px;
+    right: 30px;
   }
 }
 
@@ -682,6 +682,7 @@ p {
 
 .box-service:hover .overlay-box {
   opacity: 1;
+  cursor: pointer;
 }
 
 .box-service:hover img {
