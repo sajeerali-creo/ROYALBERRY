@@ -155,7 +155,7 @@ header .menus li .active {
 }
 
 @media (min-width: 992px) {
-  header .logo {
+  header .logo-m {
     width: 210px;
   }
   header .menus {
@@ -163,7 +163,7 @@ header .menus li .active {
   }
 }
 @media (min-width: 1200px) {
-  header .logo {
+  header .logo-m {
     width: 250px;
   }
   header .menus {
@@ -272,6 +272,16 @@ header .menus li .active {
   background-color: rgba(0, 0, 0, 0.83);
   padding: 24px 0px;
   z-index: 9;
+}
+
+.breadcums {
+  color: #716A79;
+}
+.breadcums a {
+  color: #716A79;
+}
+.breadcums .active {
+  color: var(--white);
 }
 
 .carousel-inner {
@@ -444,6 +454,17 @@ header .menus li .active {
 @media (min-width: 992px) {
   .main-banner {
     height: 100vh;
+  }
+}
+.inner {
+  height: auto !important;
+  background-size: 100%;
+  padding: 110px 0px 100px 0px;
+}
+
+@media (min-width: 992px) {
+  .inner {
+    padding: 200px 0px 100px 0px;
   }
 }
 .text-gradient {

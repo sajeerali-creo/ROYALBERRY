@@ -32,7 +32,7 @@ header {
 
 @media (min-width: 992px) {
     header {
-        .logo {
+        .logo-m {
             width: 210px;
         }
 
@@ -44,7 +44,7 @@ header {
 
 @media (min-width: 1200px) {
     header {
-        .logo {
+        .logo-m {
             width: 250px;
         }
 
@@ -168,4 +168,13 @@ header {
     background-color: rgb(0 0 0 / 83%);
     padding: 24px 0px;
     z-index: 9;
+}
+.breadcums{
+    color: #716A79;
+    a{
+        color: #716A79;
+    }
+    .active{
+        color: var(--white);
+    }
 }
