@@ -61,6 +61,7 @@ header {
     top: 0px;
     left: 0px;
     width: 100%;
+    z-index: 9;
 
     .btn-primary {
         width: 48px;
@@ -104,7 +105,7 @@ header {
         }
     }
 
-    .close {
+    .close2 {
         display: flex;
         text-align: center;
         justify-content: center;

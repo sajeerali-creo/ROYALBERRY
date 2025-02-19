@@ -1,0 +1,32 @@
+footer {
+    background-color: #0F0F0F;
+
+    .menu-footer {
+        a {
+            font-size: 14px;
+            color: #6F6F6F;
+        }
+    }
+
+    span {
+        font-size: 14px;
+        color: #6F6F6F;
+    }
+}
+.strip{
+    background-color: #1E1D1D;
+    padding: 16px 0px;
+    color: #6F6F6F;
+    img{
+        &:hover{
+            opacity: 0.5;
+        }
+    }
+}
+
+.footer-logo{
+    height: 130px;
+    @media (min-width: 992px) {
+        height: auto;
+    }
+}

@@ -23,20 +23,26 @@
 
 .team-pic {
     width: 100%;
-    height: 470px;
+    height: 350px;
     overflow: hidden;
     border-radius: 10px 10px 0px 0px;
+
+    img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+    }
 
     @media (min-width: 992px) {
         height: 600px;
         border-radius: 10px 0px 0px 10px;
+
+        img {
+            height: 600px;
+        }
     }
 
-    img {
-        width: 100%;
-        height: 600px;
-        object-fit: cover;
-    }
+
 }
 
 .white-box {
@@ -93,7 +99,7 @@
 }
 
 .box-service {
-    height: 526px;
+    height: 356px;
     width: 100%;
     background-color: #f1f1f1;
     border-radius: 20px;
@@ -102,9 +108,18 @@
 
     img {
         width: 100%;
-        height: 526px;
+        height: 356px;
         object-fit: cover;
         transition: transform 0.5s ease;
+    }
+
+    @media (min-width: 992px) {
+        height: 526px;
+
+        img {
+            height: 526px;
+        }
+
     }
 
     .overlay-box {
@@ -173,11 +188,13 @@
     border-radius: 20px;
     position: relative;
     padding: 24px;
+
     @media (min-width: 992px) {
         padding: 48px;
     }
-    .starts{
-        img{
+
+    .starts {
+        img {
             height: 20px;
         }
     }
@@ -194,15 +211,37 @@
     z-index: -1;
     border-radius: 22px;
 }
-.image-testi{
+
+.image-testi {
     width: 60px;
     height: 60px;
     border-radius: 160px;
     overflow: hidden;
     background-color: #f1f1f1;
-    img{
+
+    img {
         width: 100%;
         height: 60px;
         object-fit: cover;
+    }
+}
+
+.testimonial {
+    .carousel-item {
+        padding: 2px 0px;
+    }
+}
+
+.slider-track {
+    .logo {
+        width: 218px;
+        height: auto;
+        border-radius: 10px;
+        border: 1px solid #e1e1e1;
+        text-align: center;
+
+        img {
+            width: 180px;
+        }
     }
 }
