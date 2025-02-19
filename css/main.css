@@ -110,6 +110,18 @@ li {
   opacity: 0.5;
 }
 
+.btn-action {
+  width: 60px;
+  height: 60px;
+  border-radius: 160px;
+  background-color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #000;
+}
+
 header {
   height: auto;
   background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
@@ -590,15 +602,48 @@ p {
   position: absolute;
   top: 0;
   left: 0;
+  background-color: rgba(0, 0, 0, 0.62);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  align-items: end;
+  text-align: left;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+@media (min-width: 992px) {
+  .box-service .overlay-box {
+    padding: 48px;
+  }
+}
+.box-service .overlay-box p {
+  color: #fff;
+}
+
+.box-title {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 20.18%, rgba(0, 0, 0, 0.6) 79.82%);
   border-radius: 20px;
   padding: 24px;
   display: flex;
   align-items: end;
   text-align: left;
+  transition: all 0.5s ease;
 }
 @media (min-width: 992px) {
-  .box-service .overlay-box {
+  .box-title {
     padding: 48px;
   }
+}
+
+.box-service:hover .overlay-box {
+  opacity: 1;
+}
+
+.box-service:hover .box-title {
+  display: none;
 }/*# sourceMappingURL=main.css.map */
