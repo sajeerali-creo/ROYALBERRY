@@ -1,0 +1,34 @@
+.box-form {
+    background-color: #FAFAFA;
+    label{
+        font-weight: 500;
+    }
+}
+
+.form-control {
+    height: 50px;
+}
+
+.icon-c{
+    width: 63px;
+    height: 63px;
+    img{
+        width: 100%;
+        height: 63px;
+        object-fit: contain;
+    }
+}
+.office-box{
+    background-color: #FFF2DB;
+    border: 1px solid #E5E5E5;
+    border-radius: 16px;
+}
+.icon-box{
+    width: 24px;
+}
+.map-container{
+    height: 404px;
+    overflow: hidden;
+    border-radius: 20px;
+    background-color: #f9f9f9;
+}
