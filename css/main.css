@@ -889,9 +889,86 @@ p {
 
 .box-gr {
   width: 100%;
-  height: 409px;
+  height: auto;
   background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
   border-radius: 20px;
+}
+@media (min-width: 992px) {
+  .box-gr {
+    height: 409px;
+  }
+}
+
+.team-avatar {
+  width: 100%;
+  height: 480px;
+  background-color: #f9f9f9;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.team-avatar img {
+  width: 100%;
+  height: 480px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.team-details {
+  background-color: var(--white);
+  width: 100%;
+  height: auto;
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.up-box {
+  position: relative;
+  margin-top: -80px;
+}
+
+.hero-box-3 {
+  border-radius: 20px;
+  background-color: #f9f9f9;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-image: url(../img/bg-hero-3.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+@media (min-width: 992px) {
+  .hero-box-3 {
+    background-attachment: fixed;
+    background-size: cover;
+    height: 555px;
+  }
+}
+
+.intercat {
+  height: 212px;
+  background: rgba(218, 178, 56, 0.35);
+  border-radius: 20px;
+}
+.intercat img {
+  width: 50%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.cateria {
+  height: 212px;
+  background: rgba(25, 21, 107, 0.15);
+  border-radius: 20px;
+}
+.cateria img {
+  width: 50%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .gallery {
