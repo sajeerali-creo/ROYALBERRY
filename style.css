@@ -464,7 +464,7 @@ header .menus li .active {
 .loading {
   width: 150px;
   height: 150px;
-  background-image: url(../img/loading.webp);
+  background-image: url(img/loading.webp);
   background-repeat: no-repeat;
   background-size: 100%;
   overflow: hidden;
@@ -534,7 +534,7 @@ header .menus li .active {
 .main-banner {
   width: 100%;
   height: auto;
-  background-image: url(../img/banner.webp);
+  background-image: url(img/banner.webp);
   background-size: cover;
   background-repeat: no-repeat;
   text-align: center;
@@ -649,7 +649,7 @@ p {
 
 .bg-section {
   background-color: #E0B464;
-  background-image: url(../img/bg-mode.webp);
+  background-image: url(img/bg-mode.webp);
   background-position: top right;
   background-size: 440px;
   background-repeat: no-repeat;
@@ -722,7 +722,7 @@ p {
 }
 
 .bg-here {
-  background-image: url(../img/hero.webp);
+  background-image: url(img/hero.webp);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
@@ -1034,7 +1034,7 @@ p {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-image: url(../img/bg-hero-3.webp);
+  background-image: url(img/bg-hero-3.webp);
   background-size: cover;
   background-repeat: no-repeat;
 }
