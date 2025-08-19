@@ -2,773 +2,631 @@
 /* Template Name: home */
 ?>
 <?php get_header(); ?>
- <!-- BANNER -->
- <section class="main-banner">
-        <div class="container">
-            <h1 class="h1 text-gradient" data-aos="fade-up">Welcome to the
-                Exquisite World of Royalberry & Cateriya
-                by Intercat Hospitality</h1>
-        </div>
-    </section>
-    <!-- END BANNER -->
 
-    <!-- WHO WE ARE -->
-    <section class="padding-top padding-bottom bg-section text-center text-lg-start">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7">
-                    <h2 class="h2 text-pink" data-aos="fade-up">Who we are</h2>
-                    <p class="big-text" data-aos="fade-up">We blend culinary artistry with impeccable service, crafting
-                        unforgettable dining experiences fit
-                        for royalty.</p>
-                    <p class="text-brown" data-aos="fade-up">Step into a realm where heritage, tradition, & culinary
-                        artistry unite to
-                        create extraordinary
-                        experiences. Royalberry, the luxurious UAE extension of Purpleberry India, continues a legacy of
-                        excellence rooted in Indian culture, reimagined for the modern world. Together with Cateriya by
-                        Intercat Hospitality, we blend age-old traditions with contemporary innovation to redefine
-                        luxury catering in the Middle East & beyond.</p>
-                    <div class="d-flex mt-4 justify-content-center justify-content-lg-start">
-                        <a href="#" class="btn-light">Explore More Details&nbsp;<i class="ti ti-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-5 d-flex gap-4 mt-4 mt-lg-0">
-                    <div class="box-img" data-aos="fade-up">
-                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/who_we_are_1_2x.webp" alt="">
-                    </div>
-                    <div class="box-img" data-aos="fade-up">
-                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/who_we_are_2_2x.webp" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- WHO WE ARE -->
+<!-- <div class="home">
+<div class="container box text-center">
+        <h1 class="h1 text-gradient">Welcome to the
+            Exquisite World of Royalberry & Cateriya
+            by Intercat Hospitality</h1>
+    </div>
+<video muted loop autoplay>
+<source src="https://assets.codepen.io/6093409/river.mp4" type="video/mp4">
+</video>
+</div> -->
 
-    <!-- TEAM -->
-    <section class="padding-bottom padding-top bg-gradient3 extra-b-padding1">
-        <div class="container text-center pb-5">
-            <h2 class="h2 text-pink" data-aos="fade-up">Meet Our Team</h2>
-            <div class="devider-img mt-4" data-aos="fade-up">
-                <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/devider.svg" alt="">
-            </div>
-        </div>
+<!-- BANNER -->
+<section class="main-banner">
+    <div class="container">
 
-        <div class="container">
+        <?php
+        // Define the query
+        $args = array(
+            'post_type' => 'web_content', // Change to your custom post type or category
+            'posts_per_page' => 1,      // Fetch all logos
+        );
+
+        $logos_query = new WP_Query($args);
+
+        if ($logos_query->have_posts()):
+            ?>
+            <?php
+            while ($logos_query->have_posts()):
+                $logos_query->the_post();
+                $banner_title = get_field('banner_title');
+                ?>
+                <h1 class="h1 text-gradient"><?php echo $banner_title; ?></h1>
+                <?php
+            endwhile;
+            ?>
+            <?php
+        endif;
+
+        // Reset the post data
+        wp_reset_postdata();
+        ?>
+    </div>
+</section>
+<!-- END BANNER -->
+
+<!-- WHO WE ARE -->
+<section class="padding-top padding-bottom bg-section text-center text-lg-start">
+    <div class="container">
+        <div class="row">
+            <?php
+            // Define the query
+            $args = array(
+                'post_type' => 'web_content', // Change to your custom post type or category
+                'posts_per_page' => 1,      // Fetch all logos
+            );
+
+            $logos_query = new WP_Query($args);
+
+            if ($logos_query->have_posts()):
+                ?>
+                <?php
+                while ($logos_query->have_posts()):
+                    $logos_query->the_post();
+                    $banner_title = get_field('banner_title');
+                    $who_we_are_title = get_field('who_we_are_title');
+                    $who_we_are_sub_title = get_field('who_we_are_sub_title');
+                    $who_we_are_paragraph = get_field('who_we_are_paragraph');
+                    $who_we_are_button = get_field('who_we_are_button');
+                    $who_we_are_image_1 = get_field('who_we_are_image_1');
+                    $who_we_are_image_2 = get_field('who_we_are_image_2');
+                    ?>
+                    <div class="col-lg-7">
+                        <h2 class="h2 text-pink"><?php echo $who_we_are_title; ?></h2>
+                        <p class="text-white"><?php echo $who_we_are_sub_title; ?></p>
+                        <p class="text-brown"><?php echo $who_we_are_paragraph; ?></p>
+                        <div class="d-flex mt-4 justify-content-center justify-content-lg-start">
+                            <a href="/about-us/" class="btn-light"><?php echo $who_we_are_button; ?></a>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-5 d-flex gap-4 mt-4 mt-lg-0">
+                        <div class="box-img">
+                            <!-- <img src="/wp-content/uploads/2025/02/who_we_are_1_2x.webp" alt=""> -->
+                            <img src="<?php echo esc_url($who_we_are_image_1); ?>"
+                                alt="<?php echo esc_attr($who_we_are_image_1); ?>">
+                        </div>
+                        <div class="box-img">
+                            <!-- <img src="/wp-content/uploads/2025/02/who_we_are_2_2x.webp" alt=""> -->
+                            <img src="<?php echo esc_url($who_we_are_image_2); ?>"
+                                alt="<?php echo esc_attr($who_we_are_image_2); ?>">
+                        </div>
+                    </div>
+                    <?php
+                endwhile;
+                ?>
+                <?php
+            endif;
+
+            // Reset the post data
+            wp_reset_postdata();
+            ?>
+        </div>
+    </div>
+</section>
+<!-- WHO WE ARE -->
+
+<!-- TEAM -->
+<!-- <section class="padding-bottom padding-top bg-gradient3 extra-b-padding1">
+    <div class="container text-center pb-5">
+        <h2 class="h2 text-pink">Meet Our Team</h2>
+        <div class="devider-img mt-4">
+            <img src="/wp-content/uploads/2025/02/devider.svg" alt="">
+        </div>
+    </div>
+
+    <div class="container">
+        <?php
+        // Define the query
+        $args = array(
+            'post_type' => 'meet_our_team', // Change to your custom post type or 'post' for default posts
+            'posts_per_page' => -1,     // Number of posts to display
+        );
+
+        $team_query = new WP_Query($args);
+
+        if ($team_query->have_posts()):
+            ?>
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                        class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
+                    <?php
+                    $index = 0;
+                    while ($team_query->have_posts()):
+                        $team_query->the_post();
+                        $active_class = ($index === 0) ? 'active' : '';
+                        ?>
+                        <button type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide-to="<?php echo $index; ?>" class="<?php echo $active_class; ?>"
+                            aria-label="Slide <?php echo $index + 1; ?>"></button>
+                        <?php
+                        $index++;
+                    endwhile;
+                    ?>
                 </div>
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row g-0" data-aos="fade-in">
-                            <div class="col-lg-5">
-                                <div class="team-pic">
-                                    <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/carlos_abou_haidar.webp" alt="">
+                    <?php
+                    $index = 0;
+                    while ($team_query->have_posts()):
+                        $team_query->the_post();
+                        $active_class = ($index === 0) ? 'active' : '';
+                        $image_url = get_field('image_url');
+                        $name = get_the_title();
+                        $position = get_field('position'); // Assuming you're using ACF for the position field
+                        $description = get_field('description');
+                        ?>
+                        <div class="carousel-item <?php echo $active_class; ?>">
+                            <div class="row g-0"  >
+                                <div class="col-lg-5">
+                                    <div class="team-pic">
+                                        <img src="<?php echo $image_url; ?>" alt="<?php echo $name; ?>">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-7">
-                                <div class="white-box d-flex flex-column justify-content-center">
-                                    <h3>Carlos Abou Haidar</h3>
-                                    <span class="fs-24 mb-4 d-flex">CEO - Intercat Hospitality</span>
-                                    <p>At Royalberry & Cateriya by Intercat Hospitality, our team is the heart of
-                                        everything we do.
-                                        Comprised of passionate chefs, creative visionaries, & dedicated professionals,
-                                        we bring a
-                                        wealth of expertise, cultural knowledge, & innovation to every event. With a
-                                        shared
-                                        commitment to excellence, we work collaboratively to craft unforgettable
-                                        experiences that
-                                        reflect your vision. From curating heritage-inspired menus to designing bespoke
-                                        setups, our
-                                        team's attention to detail & passion for hospitality ensure every moment is
-                                        extraordinary.
-                                        Together, we turn dreams into reality.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row g-0" data-aos="fade-in">
-                            <div class="col-lg-5">
-                                <div class="team-pic">
-                                    <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/carlos_abou_haidar.webp" alt="">
-                                </div>
-                            </div>
-                            <div class="col-lg-7">
-                                <div class="white-box d-flex flex-column justify-content-center">
-                                    <h3>Carlos Abou Haidar</h3>
-                                    <span class="fs-24 mb-4 d-flex">CEO - Intercat Hospitality</span>
-                                    <p>At Royalberry & Cateriya by Intercat Hospitality, our team is the heart of
-                                        everything we do.
-                                        Comprised of passionate chefs, creative visionaries, & dedicated professionals,
-                                        we bring a
-                                        wealth of expertise, cultural knowledge, & innovation to every event. With a
-                                        shared
-                                        commitment to excellence, we work collaboratively to craft unforgettable
-                                        experiences that
-                                        reflect your vision. From curating heritage-inspired menus to designing bespoke
-                                        setups, our
-                                        team's attention to detail & passion for hospitality ensure every moment is
-                                        extraordinary.
-                                        Together, we turn dreams into reality.</p>
+                                <div class="col-lg-7">
+                                    <div class="white-box d-flex flex-column justify-content-center">
+                                        <h3><?php echo $name; ?></h3>
+                                        <span class="fs-24 mb-4 d-flex"><?php echo $position; ?></span>
+                                        <p><?php echo $description; ?></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row g-0" data-aos="fade-in">
-                            <div class="col-lg-5">
-                                <div class="team-pic">
-                                    <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/carlos_abou_haidar.webp" alt="">
-                                </div>
-                            </div>
-                            <div class="col-lg-7">
-                                <div class="white-box d-flex flex-column justify-content-center">
-                                    <h3>Carlos Abou Haidar</h3>
-                                    <span class="fs-24 mb-4 d-flex">CEO - Intercat Hospitality</span>
-                                    <p>At Royalberry & Cateriya by Intercat Hospitality, our team is the heart of
-                                        everything we do.
-                                        Comprised of passionate chefs, creative visionaries, & dedicated professionals,
-                                        we bring a
-                                        wealth of expertise, cultural knowledge, & innovation to every event. With a
-                                        shared
-                                        commitment to excellence, we work collaboratively to craft unforgettable
-                                        experiences that
-                                        reflect your vision. From curating heritage-inspired menus to designing bespoke
-                                        setups, our
-                                        team's attention to detail & passion for hospitality ensure every moment is
-                                        extraordinary.
-                                        Together, we turn dreams into reality.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        <?php
+                        $index++;
+                    endwhile;
+                    ?>
                 </div>
             </div>
-        </div>
+            <?php
+        else:
+            echo '<p class="w-100 d-flex justify-content-center">No team members found.</p>';
+        endif;
+
+        // Reset the post data
+        wp_reset_postdata();
+        ?>
+    </div>
 
 
-    </section>
-    <!-- TEAM -->
+</section> -->
+<!-- TEAM -->
 
-    <!-- HERO -->
-    <section class="padding-bottom padding-top bg-here d-flex align-items-center">
-        <div class="container d-flex flex-column align-items-center">
-            <div class="loading mb-4">
-                <div class="moving">
-                </div>
-            </div>
-            <h2 class="text-gradient h2 text-center">
-                Celebrate your special day with a feast fit for royalty, where global flavors blend into a culinary
-                masterpiece to enchant and delight.
-            </h2>
-        </div>
-    </section>
-    <!-- HERO -->
-
-    <!-- Experience Excellence With Us -->
-    <section class="padding-bottom padding-top bg-gradient3 extra-b-padding">
-        <div class="container text-center pb-5">
-            <h2 class="h2 text-pink" data-aos="fade-up">Experience Excellence With Us</h2>
-            <div class="devider-img mt-4" data-aos="fade-up">
-                <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/devider.svg" alt="">
+<!-- HERO -->
+<section class="padding-bottom padding-top bg-here d-flex align-items-center">
+    <div class="container d-flex flex-column align-items-center">
+        <div class="loading mb-4">
+            <div class="moving">
             </div>
         </div>
-        <div class="container">
+        <?php
+        // Define the query
+        $args = array(
+            'post_type' => 'web_content', // Change to your custom post type or category
+            'posts_per_page' => 1,      // Fetch all logos
+        );
+
+        $logos_query = new WP_Query($args);
+
+        if ($logos_query->have_posts()):
+            ?>
+            <?php
+            while ($logos_query->have_posts()):
+                $logos_query->the_post();
+                $hero_title = get_field('hero_title');
+                ?>
+                <h2 class="text-gradient text-center">
+                    <?php echo $hero_title; ?>
+                    <!-- Celebrate your special day with a feast fit for royalty, where global flavors blend into a culinary
+                    masterpiece to enchant and delight. -->
+                </h2>
+                <?php
+            endwhile;
+            ?>
+            <?php
+        endif;
+
+        // Reset the post data
+        wp_reset_postdata();
+        ?>
+    </div>
+</section>
+<!-- HERO -->
+
+<!-- Experience Excellence With Us -->
+<section class="padding-bottom padding-top bg-gradient3 extra-b-padding">
+    <div class="container text-center pb-5">
+        <h2 class="h2 text-pink">Experience Excellence With Us</h2>
+        <div class="devider-img mt-4">
+            <img src="/wp-content/uploads/2025/02/devider.svg" alt="">
+        </div>
+    </div>
+    <div class="container">
+        <?php
+        // Define the query
+        $args = array(
+            'post_type' => 'services_royal', // Change to your custom post type or 'post' for default posts
+            'posts_per_page' => -1,         // Fetch all posts
+        );
+
+        $services_query = new WP_Query($args);
+
+        if ($services_query->have_posts()):
+            ?>
             <div class="row">
-                <div class="col-lg-4 col-sm-6 col-12 mb-4" data-aos="fade-up">
-                    <div class="box-service">
-                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/wedding.webp" alt="">
-                        <div class="box-title">
-                            <h4 class="text-gradient">Wedding</h4>
-                        </div>
-                        <div class="overlay-box flex-column align-items-baseline justify-content-between">
-                            <div>
-                                <h4 class="text-gradient">Wedding</h4>
-                                <div class="content-s">
-                                    <p>
-                                        Exquisite luxury wedding services designed to craft unforgettable moments with
-                                        elegance and perfection.
-                                    </p>
-                                </div>
+                <?php
+                while ($services_query->have_posts()):
+                    $services_query->the_post();
+                    $image_url = get_field('image_url');
+                    $title = get_the_title();
+                    $description = get_the_content();
+                    $image_1 = get_field('image_1');
+                    $link = get_permalink(); // Link to the service details page
+                    ?>
+                    <div class="col-lg-4 col-sm-6 col-12 mb-4">
+                        <div class="box-service">
+                            <img src="<?php echo $image_1; ?>" alt="<?php echo $title; ?>">
+                            <div class="box-title">
+                                <h4 class="text-gradient"><?php echo $title; ?></h4>
                             </div>
-                            <div class="contents w-100">
-                                <div class="action-s d-flex justify-content-end w-100">
-                                    <a href="#" class="btn-action pulse2">
-                                        <i class="ti ti-arrow-up-right"></i>
-                                    </a>
+                            <div class="overlay-box flex-column align-items-baseline justify-content-between">
+                                <div>
+                                    <h4 class="text-gradient"><?php echo $title; ?></h4>
+                                    <div class="content-s">
+                                        <p>
+                                            <?php echo wp_trim_words(get_the_content(), 35); ?>
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 col-12 mb-4" data-aos="fade-up">
-                    <div class="box-service">
-                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/events.webp" alt="">
-                        <div class="box-title">
-                            <h4 class="text-gradient">Events</h4>
-                        </div>
-                        <div class="overlay-box flex-column align-items-baseline justify-content-between">
-                            <div>
-                                <h4 class="text-gradient">Events</h4>
-                                <div class="content-s">
-                                    <p>
-                                        Exquisite luxury wedding services designed to craft unforgettable moments with
-                                        elegance and perfection.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="contents w-100">
-                                <div class="action-s d-flex justify-content-end w-100">
-                                    <a href="#" class="btn-action pulse2">
-                                        <i class="ti ti-arrow-up-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 col-12 mb-4" data-aos="fade-up">
-                    <div class="box-service">
-                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/private-corporate-catering.webp" alt="">
-                        <div class="box-title">
-                            <h4 class="text-gradient">Private & Corporate Catering</h4>
-                        </div>
-                        <div class="overlay-box flex-column align-items-baseline justify-content-between">
-                            <div>
-                                <h4 class="text-gradient">Private & Corporate Catering</h4>
-                                <div class="content-s">
-                                    <p>
-                                        Exquisite luxury wedding services designed to craft unforgettable moments with
-                                        elegance and perfection.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="contents w-100">
-                                <div class="action-s d-flex justify-content-end w-100">
-                                    <a href="#" class="btn-action pulse2">
-                                        <i class="ti ti-arrow-up-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 col-12 mb-4" data-aos="fade-up">
-                    <div class="box-service">
-                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/chaat.webp" alt="">
-                        <div class="box-title">
-                            <h4 class="text-gradient">Chaat</h4>
-                        </div>
-                        <div class="overlay-box flex-column align-items-baseline justify-content-between">
-                            <div>
-                                <h4 class="text-gradient">Chaat</h4>
-                                <div class="content-s">
-                                    <p>
-                                        Exquisite luxury wedding services designed to craft unforgettable moments with
-                                        elegance and perfection.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="contents w-100">
-                                <div class="action-s d-flex justify-content-end w-100">
-                                    <a href="#" class="btn-action pulse2">
-                                        <i class="ti ti-arrow-up-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 col-12 mb-4" data-aos="fade-up">
-                    <div class="box-service">
-                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/sweets.webp" alt="">
-                        <div class="box-title">
-                            <h4 class="text-gradient">Sweets</h4>
-                        </div>
-                        <div class="overlay-box flex-column align-items-baseline justify-content-between">
-                            <div>
-                                <h4 class="text-gradient">Sweets</h4>
-                                <div class="content-s">
-                                    <p>
-                                        Exquisite luxury wedding services designed to craft unforgettable moments with
-                                        elegance and perfection.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="contents w-100">
-                                <div class="action-s d-flex justify-content-end w-100">
-                                    <a href="#" class="btn-action pulse2">
-                                        <i class="ti ti-arrow-up-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 col-12 mb-4" data-aos="fade-up">
-                    <div class="box-service">
-                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/b2b_horca.webp" alt="">
-                        <div class="box-title">
-                            <h4 class="text-gradient">B2B Horeca</h4>
-                        </div>
-                        <div class="overlay-box flex-column align-items-baseline justify-content-between">
-                            <div>
-                                <h4 class="text-gradient">B2B Horeca</h4>
-                                <div class="content-s">
-                                    <p>
-                                        Exquisite luxury wedding services designed to craft unforgettable moments with
-                                        elegance and perfection.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="contents w-100">
-                                <div class="action-s d-flex justify-content-end w-100">
-                                    <a href="#" class="btn-action pulse2">
-                                        <i class="ti ti-arrow-up-right arrow"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Experience Excellence With Us -->
+                                <div class="contents w-100">
+                                    <div class="action-s d-flex justify-content-end w-100">
+                                        <a href="/services/" class="btn-action pulse2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-right">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M5 12l14 0" />
+                                                <path d="M13 18l6 -6" />
+                                                <path d="M13 6l6 6" />
+                                            </svg>
 
-    <!-- GALLERY -->
-    <section class="padding-bottom padding-top bg-gallery">
-        <div class="container text-center pb-5">
-            <h2 class="h2 text-white" data-aos="fade-up">Our Gallery</h2>
-            <div class="devider-img mt-4" data-aos="fade-up">
-                <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/devider.svg" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                endwhile;
+                ?>
             </div>
+            <?php
+        else:
+            echo '<p class="w-100 d-flex justify-content-center">No services found.</p>';
+        endif;
+
+        // Reset the post data
+        wp_reset_postdata();
+        ?>
+    </div>
+</section>
+<!-- Experience Excellence With Us -->
+
+<!-- GALLERY -->
+<section class="padding-bottom padding-top bg-gallery">
+    <div class="container text-center pb-5">
+        <h2 class="h2 text-white">Our Gallery</h2>
+        <div class="devider-img mt-4">
+            <img src="/wp-content/uploads/2025/02/devider.svg" alt="">
         </div>
-        <div class="container">
+    </div>
+    <div class="container">
+        <?php
+        $args = array(
+            'post_type' => 'gallery_images',
+            'posts_per_page' => 6, // get all posts
+        );
+
+        $gallery_query = new WP_Query($args);
+
+        if ($gallery_query->have_posts()):
+            ?>
             <div class="gallery">
-                <div class="gallery-item" data-aos="fade-up">
-                    <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/g1_2x.webp" alt="Image 1" onclick="openLightbox();currentSlide(1)">
-                </div>
-                <div class="gallery-item" data-aos="fade-up">
-                    <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/g2_2x.webp" alt="Image 2" onclick="openLightbox();currentSlide(2)">
-                </div>
-                <div class="gallery-item" data-aos="fade-up">
-                    <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/g3_2x.webp" alt="Image 3" onclick="openLightbox();currentSlide(3)">
-                </div>
-                <div class="gallery-item" data-aos="fade-up">
-                    <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/g4_2x.webp" alt="Image 4" onclick="openLightbox();currentSlide(3)">
-                </div>
-                <div class="gallery-item" data-aos="fade-up">
-                    <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/g5_2x.webp" alt="Image 5" onclick="openLightbox();currentSlide(3)">
-                </div>
-                <div class="gallery-item" data-aos="fade-up">
-                    <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/g6_2x.webp" alt="Image 6" onclick="openLightbox();currentSlide(3)">
-                </div>
-                <!-- Add more images as needed -->
+                <?php
+                $index = 1;
+                while ($gallery_query->have_posts()):
+                    $gallery_query->the_post();
+
+                    $image_thumb = get_field('image_thumb');
+                    $alt_text = get_the_title();
+
+                    if ($image_thumb):
+                        ?>
+                        <div class="gallery-item">
+                            <img src="<?php echo esc_url($image_thumb); ?>" alt="<?php echo esc_attr($alt_text); ?>"
+                                onclick="openLightbox('gallery'); currentSlide(<?php echo $index; ?>, 'gallery')">
+                        </div>
+                        <?php
+                        $index++;
+                    endif;
+                endwhile;
+                ?>
             </div>
-            <!-- The Lightbox -->
-            <div id="lightbox" class="lightbox">
-                <span class="close" onclick="closeLightbox()"><i class="ti ti-x box-control"></i></span>
+
+            <!-- Lightbox -->
+            <div id="lightbox-gallery" class="lightbox" style="display: none;">
+                <span class="close" onclick="closeLightbox('gallery')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-x">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M18 6l-12 12" />
+                        <path d="M6 6l12 12" />
+                    </svg>
+                </span>
+
                 <div class="lightbox-content">
-                    <div class="lightbox-slide">
-                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/g1_2x.webp" alt="Image 1">
-                    </div>
-                    <div class="lightbox-slide">
-                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/g2_2x.webp" alt="Image 2">
-                    </div>
-                    <div class="lightbox-slide">
-                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/g3_2x.webp" alt="Image 3">
-                    </div>
-                    <div class="lightbox-slide">
-                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/g4_2x.webp" alt="Image 4">
-                    </div>
-                    <div class="lightbox-slide">
-                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/g5_2x.webp" alt="Image 5">
-                    </div>
-                    <div class="lightbox-slide">
-                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/g6_2x.webp" alt="Image 6">
-                    </div>
-                    <!-- Add more slides as needed -->
+                    <?php
+                    // Reset the loop to rebuild lightbox slides
+                    $gallery_query->rewind_posts();
+                    while ($gallery_query->have_posts()):
+                        $gallery_query->the_post();
+
+                        $image_details = get_field('image_details');
+                        $alt_text = get_the_title();
+
+                        if ($image_details):
+                            ?>
+                            <div class="lightbox-slide">
+                                <img src="<?php echo esc_url($image_details); ?>" alt="<?php echo esc_attr($alt_text); ?>">
+                            </div>
+                            <?php
+                        endif;
+                    endwhile;
+                    ?>
                 </div>
 
-                <!-- Navigation arrows -->
-                <a class="prev" onclick="changeSlide(-1)"><i class="ti ti-chevron-left box-control"></i></a>
-                <a class="next" onclick="changeSlide(1)"><i class="ti ti-chevron-right box-control"></i></a>
-            </div>
-        </div>
-        <div class="d-flex mt-5 justify-content-center">
-            <a href="/profile.pdf" class="btn-primary border-gradient border-gradient-green">
-                <span>Explore More</span>
-                <i class="ti ti-arrow-right"></i>
-            </a>
-        </div>
-    </section>
-    <!-- GALLERY -->
+                <a class="prev" onclick="changeSlide(-1, 'gallery')">
+                    <div class="box-control">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-left">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M5 12l14 0" />
+                            <path d="M5 12l6 6" />
+                            <path d="M5 12l6 -6" />
+                        </svg>
+                    </div>
 
-    <!-- TESTIMONIALS -->
-    <section class="padding-bottom padding-top bg-gradient3 testimonial extra-b-padding1">
-        <div class="container text-center pb-5">
-            <h2 class="h2 text-pink" data-aos="fade-up">Testimonials</h2>
-            <div class="devider-img mt-4" data-aos="fade-up">
-                <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/devider.svg" alt="">
+                </a>
+                <a class="next" onclick="changeSlide(1, 'gallery')">
+                    <div class="box-control">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-right">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M5 12l14 0" />
+                            <path d="M13 18l6 -6" />
+                            <path d="M13 6l6 6" />
+                        </svg>
+                    </div>
+                </a>
             </div>
-        </div>
 
-        <div class="container">
-            <div id="carouselExampleIndicators2" class="carousel slide" data-bs-ride="true">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0"
-                        class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row">
-                            <div class="col-lg-4 mb-4 mb-lg-">
-                                <div class="box-testimonial">
-                                    <div class="d-flex gap-1 starts mb-3">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                    </div>
-                                    <div>
-                                        <p>
-                                            From start to finish, the team exceeded our expectations. Their attention to
-                                            detail,
-                                            creativity, and seamless coordination made our event truly unforgettable.
-                                            Every guest
-                                            was amazed, and we couldn’t have asked for a better experience. Highly
-                                            recommended!
-                                        </p>
-                                    </div>
-                                    <div class="d-flex mt-3 gap-3 align-items-center">
-                                        <div class="image-testi">
-                                            <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/image.png" alt="">
-                                        </div>
-                                        <div>
-                                            <h5 class="m-0">Harry Jackson</h5>
-                                            <span>Businessman</span>
-                                        </div>
-                                    </div>
-                                </div>
+            <?php
+        else:
+            echo '<p class="w-100 d-flex justify-content-center">No gallery items found.</p>';
+        endif;
+
+        wp_reset_postdata();
+        ?>
+
+    </div>
+    <div class="d-flex mt-5 justify-content-center">
+        <a href="/luxury-indian-catering-in-dubai/" class="btn-primary border-gradient border-gradient-green">
+            <span>Explore More</span>
+        </a>
+    </div>
+</section>
+<!-- GALLERY -->
+
+<!-- TESTIMONIALS -->
+<!-- <section class="padding-bottom padding-top bg-gradient3 testimonial extra-b-padding1">
+    <div class="container text-center pb-5">
+        <h2 class="h2 text-pink">Testimonials</h2>
+        <div class="devider-img mt-4">
+            <img src="/wp-content/uploads/2025/02/devider.svg" alt="">
+        </div>
+    </div>
+
+    <div class="container">
+        <?php
+        // Define the query
+        $args = array(
+            'post_type' => 'testimonials_royal', // Change to your custom post type or category
+            'posts_per_page' => 3,            // Fetch all testimonials
+        );
+
+        $testimonials_query = new WP_Query($args);
+
+        if ($testimonials_query->have_posts()):
+            ?>
+
+            <div class="row">
+
+                <?php
+                $index = 0;
+                while ($testimonials_query->have_posts()):
+                    $testimonials_query->the_post();
+                    $testimonial_content = get_field('testimonial_content');
+                    $testimonial_author = get_the_title();
+                    $testimonial_role = get_field('role'); // Assuming you're using ACF for the role field
+                    $testimonial_image = get_field('testimonial_image');
+                    $active_class = ($index % 3 === 0) ? 'active' : '';
+
+                    if ($index % 3 === 0):
+                        echo ($index > 0) ? '</div></div>' : ''; // Close previous slide if not the first
+                        echo '<div class="carousel-item ' . $active_class . '"><div class="row">';
+                    endif;
+                    ?>
+                    <div class="col-lg-4 mb-4 mb-lg-0">
+                        <div class="box-testimonial">
+                            <div class="d-flex gap-1 starts mb-3">
+                                <?php for ($i = 0; $i < 5; $i++): ?>
+                                    <img src="/wp-content/uploads/2025/02/star.webp" alt="Star">
+                                <?php endfor; ?>
                             </div>
-                            <div class="col-lg-4 mb-4 mb-lg-">
-                                <div class="box-testimonial">
-                                    <div class="d-flex gap-1 starts mb-3">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                    </div>
-                                    <div>
-                                        <p>
-                                            From start to finish, the team exceeded our expectations. Their attention to
-                                            detail,
-                                            creativity, and seamless coordination made our event truly unforgettable.
-                                            Every guest
-                                            was amazed, and we couldn’t have asked for a better experience. Highly
-                                            recommended!
-                                        </p>
-                                    </div>
-                                    <div class="d-flex mt-3 gap-3 align-items-center">
-                                        <div class="image-testi">
-                                            <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/image.png" alt="">
-                                        </div>
-                                        <div>
-                                            <h5 class="m-0">Harry Jackson</h5>
-                                            <span>Businessman</span>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div>
+                                <p><?php echo esc_html($testimonial_content); ?></p>
                             </div>
-                            <div class="col-lg-4 mb-4 mb-lg-">
-                                <div class="box-testimonial">
-                                    <div class="d-flex gap-1 starts mb-3">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                    </div>
-                                    <div>
-                                        <p>
-                                            From start to finish, the team exceeded our expectations. Their attention to
-                                            detail,
-                                            creativity, and seamless coordination made our event truly unforgettable.
-                                            Every guest
-                                            was amazed, and we couldn’t have asked for a better experience. Highly
-                                            recommended!
-                                        </p>
-                                    </div>
-                                    <div class="d-flex mt-3 gap-3 align-items-center">
-                                        <div class="image-testi">
-                                            <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/image.png" alt="">
-                                        </div>
-                                        <div>
-                                            <h5 class="m-0">Harry Jackson</h5>
-                                            <span>Businessman</span>
-                                        </div>
-                                    </div>
+                            <div class="d-flex mt-3 gap-3 align-items-center">
+                                <div class="image-testi">
+                                    <img src="<?php echo esc_url($testimonial_image); ?>"
+                                        alt="<?php echo esc_attr($testimonial_author); ?>">
+                                </div>
+                                <div>
+                                    <h5 class="m-0"><?php echo esc_html($testimonial_author); ?></h5>
+                                    <span><?php echo esc_html($testimonial_role); ?></span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <div class="row">
-                            <div class="col-lg-4 mb-4 mb-lg-0">
-                                <div class="box-testimonial">
-                                    <div class="d-flex gap-1 starts mb-3">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                    </div>
-                                    <div>
-                                        <p>
-                                            From start to finish, the team exceeded our expectations. Their attention to
-                                            detail,
-                                            creativity, and seamless coordination made our event truly unforgettable.
-                                            Every guest
-                                            was amazed, and we couldn’t have asked for a better experience. Highly
-                                            recommended!
-                                        </p>
-                                    </div>
-                                    <div class="d-flex mt-3 gap-3 align-items-center">
-                                        <div class="image-testi">
-                                            <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/image.png" alt="">
-                                        </div>
-                                        <div>
-                                            <h5 class="m-0">Harry Jackson</h5>
-                                            <span>Businessman</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 mb-4 mb-lg-0">
-                                <div class="box-testimonial">
-                                    <div class="d-flex gap-1 starts mb-3">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                    </div>
-                                    <div>
-                                        <p>
-                                            From start to finish, the team exceeded our expectations. Their attention to
-                                            detail,
-                                            creativity, and seamless coordination made our event truly unforgettable.
-                                            Every guest
-                                            was amazed, and we couldn’t have asked for a better experience. Highly
-                                            recommended!
-                                        </p>
-                                    </div>
-                                    <div class="d-flex mt-3 gap-3 align-items-center">
-                                        <div class="image-testi">
-                                            <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/image.png" alt="">
-                                        </div>
-                                        <div>
-                                            <h5 class="m-0">Harry Jackson</h5>
-                                            <span>Businessman</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 mb-4 mb-lg-0">
-                                <div class="box-testimonial">
-                                    <div class="d-flex gap-1 starts mb-3">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                    </div>
-                                    <div>
-                                        <p>
-                                            From start to finish, the team exceeded our expectations. Their attention to
-                                            detail,
-                                            creativity, and seamless coordination made our event truly unforgettable.
-                                            Every guest
-                                            was amazed, and we couldn’t have asked for a better experience. Highly
-                                            recommended!
-                                        </p>
-                                    </div>
-                                    <div class="d-flex mt-3 gap-3 align-items-center">
-                                        <div class="image-testi">
-                                            <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/image.png" alt="">
-                                        </div>
-                                        <div>
-                                            <h5 class="m-0">Harry Jackson</h5>
-                                            <span>Businessman</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row">
-                            <div class="col-lg-4 mb-4 mb-lg-">
-                                <div class="box-testimonial">
-                                    <div class="d-flex gap-1 starts mb-3">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                    </div>
-                                    <div>
-                                        <p>
-                                            From start to finish, the team exceeded our expectations. Their attention to
-                                            detail,
-                                            creativity, and seamless coordination made our event truly unforgettable.
-                                            Every guest
-                                            was amazed, and we couldn’t have asked for a better experience. Highly
-                                            recommended!
-                                        </p>
-                                    </div>
-                                    <div class="d-flex mt-3 gap-3 align-items-center">
-                                        <div class="image-testi">
-                                            <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/image.png" alt="">
-                                        </div>
-                                        <div>
-                                            <h5 class="m-0">Harry Jackson</h5>
-                                            <span>Businessman</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 mb-4 mb-lg-">
-                                <div class="box-testimonial">
-                                    <div class="d-flex gap-1 starts mb-3">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                    </div>
-                                    <div>
-                                        <p>
-                                            From start to finish, the team exceeded our expectations. Their attention to
-                                            detail,
-                                            creativity, and seamless coordination made our event truly unforgettable.
-                                            Every guest
-                                            was amazed, and we couldn’t have asked for a better experience. Highly
-                                            recommended!
-                                        </p>
-                                    </div>
-                                    <div class="d-flex mt-3 gap-3 align-items-center">
-                                        <div class="image-testi">
-                                            <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/image.png" alt="">
-                                        </div>
-                                        <div>
-                                            <h5 class="m-0">Harry Jackson</h5>
-                                            <span>Businessman</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 mb-4 mb-lg-">
-                                <div class="box-testimonial">
-                                    <div class="d-flex gap-1 starts mb-3">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/star.webp" alt="">
-                                    </div>
-                                    <div>
-                                        <p>
-                                            From start to finish, the team exceeded our expectations. Their attention to
-                                            detail,
-                                            creativity, and seamless coordination made our event truly unforgettable.
-                                            Every guest
-                                            was amazed, and we couldn’t have asked for a better experience. Highly
-                                            recommended!
-                                        </p>
-                                    </div>
-                                    <div class="d-flex mt-3 gap-3 align-items-center">
-                                        <div class="image-testi">
-                                            <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/image.png" alt="">
-                                        </div>
-                                        <div>
-                                            <h5 class="m-0">Harry Jackson</h5>
-                                            <span>Businessman</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- TESTIMONIALS -->
+                    <?php
+                    $index++;
+                endwhile;
+                echo '</div></div>'; // Close the last slide
+                ?>
+                <?php
+        else:
+            echo '<p>No testimonials found.</p>';
+        endif;
 
-    <!-- LOGO SLIDER -->
-    <section class="padding-bottom padding-top bg-white">
-        <div class="container text-center padding-bottom">
-            <h2 class="h2 text-pink" data-aos="fade-up">Our Clients</h2>
-            <div class="devider-img mt-4" data-aos="fade-up">
-                <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/devider.svg" alt="">
-            </div>
+        // Reset the post data
+        wp_reset_postdata();
+        ?>
         </div>
-        <div class="container">
-            <div class="logo-slider">
-                <div class="slider-track">
-                    <!-- Logos -->
-                    <div class="logo">
-                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/tata.webp" alt="Logo 1">
-                    </div>
-                    <div class="logo">
-                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/asianpaint.webp" alt="Logo 2">
-                    </div>
-                    <div class="logo">
-                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/kia.webp" alt="Logo 3">
-                    </div>
-                    <div class="logo">
-                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/am.webp" alt="Logo 4">
-                    </div>
-                    <div class="logo">
-                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/hyundai.webp" alt="Logo 5">
-                    </div>
-                </div>
-                <div class="slider-track">
-                    <!-- Logos -->
-                    <div class="logo">
-                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/tata.webp" alt="Logo 1">
-                    </div>
-                    <div class="logo">
-                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/asianpaint.webp" alt="Logo 2">
-                    </div>
-                    <div class="logo">
-                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/kia.webp" alt="Logo 3">
-                    </div>
-                    <div class="logo">
-                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/am.webp" alt="Logo 4">
-                    </div>
-                    <div class="logo">
-                        <img src="https://royalberrycatering.com/wp-content/uploads/2025/02/hyundai.webp" alt="Logo 5">
-                    </div>
+
+    </div>
+</section> -->
+<!-- TESTIMONIALS -->
+
+<section class="padding-bottom padding-top">
+    <?php
+    // Define the query
+    $args = array(
+        'post_type' => 'web_content', // Change to your custom post type or category
+        'posts_per_page' => 1,      // Fetch all logos
+    );
+
+    $logos_query = new WP_Query($args);
+
+    if ($logos_query->have_posts()):
+        ?>
+        <?php
+        while ($logos_query->have_posts()):
+            $logos_query->the_post();
+            $what_are_you_looking_title = get_field('what_are_you_looking_title');
+            $intercat_title = get_field('intercat_title');
+            $intercat_logo = get_field('intercat_logo');
+            $intercat_paragraph = get_field('intercat_paragraph');
+            $cateria_title = get_field('cateria_title');
+            $cateria_logo = get_field('cateria_logo');
+            $cateria_paragraph = get_field('cateria_paragraph');
+            ?>
+            <div class="container text-center pb-5">
+                <h2 class="h2 text-pink"><?php echo $what_are_you_looking_title; ?></h2>
+                <div class="devider-img mt-4">
+                    <img src="/wp-content/uploads/2025/02/devider.svg" alt="">
                 </div>
             </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <div class="intercat d-flex justify-content-center align-items-center bg-intercat">
+                            <a href="https://intercat-hospitality.com/"
+                                class="w-100 h-100 d-flex flex-column justify-content-center" target="_blank">
+                                <img src="<?php echo esc_url($intercat_logo); ?>" alt="" class="mb-4">
+                                <h2><?php echo $intercat_title; ?></h2>
+                                <p><?php echo $intercat_paragraph; ?></p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="cateria d-flex justify-content-center align-items-center bg-cateria">
+                            <a href="https://intercat-hospitality.com/cateriya-homepage/"
+                                class="w-100 h-100 d-flex flex-column justify-content-center" target="_blank">
+                                <img src="<?php echo esc_url($cateria_logo); ?>" alt="" class="mb-4">
+                                <h2><?php echo $cateria_title; ?></h2>
+                                <p><?php echo $cateria_paragraph; ?></p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php
+        endwhile;
+        ?>
         </div>
-    </section>
-    <!-- LOGO SLIDER -->
+        <?php
+    endif;
+
+    // Reset the post data
+    wp_reset_postdata();
+    ?>
+</section>
+<!-- LOGO SLIDER -->
+<section class="padding-bottom padding-top bg-gradient3">
+    <div class="container text-center padding-bottom">
+        <h2 class="h2 text-pink">Our Clients</h2>
+        <div class="devider-img mt-4">
+            <img src="/wp-content/uploads/2025/02/devider.svg" alt="">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="owl-carousel owl-theme">
+
+            <?php
+            // Define the query
+            $args = array(
+                'post_type' => 'our_clients', // Change to your custom post type or category
+                'posts_per_page' => -1,      // Fetch all logos
+            );
+
+            $logos_query = new WP_Query($args);
+
+            if ($logos_query->have_posts()):
+                ?>
+                <?php
+                while ($logos_query->have_posts()):
+                    $logos_query->the_post();
+                    $logo_url = get_field('logo_url');
+                    $logo_alt = get_the_title();
+                    ?>
+                    <div class="item">
+
+
+                        <div class="logo">
+                            <img src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr($logo_alt); ?>">
+                        </div>
+
+
+                    </div>
+                    <?php
+                endwhile;
+                ?>
+                <?php
+            endif;
+
+            // Reset the post data
+            wp_reset_postdata();
+            ?>
+        </div>
+    </div>
+</section>
+<!-- LOGO SLIDER -->
+
 
 <?php get_footer(); ?>
